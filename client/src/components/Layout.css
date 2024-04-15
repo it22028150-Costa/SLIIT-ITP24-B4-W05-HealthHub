@@ -1,0 +1,94 @@
+.logoImage {
+    height: 60px;
+    width: 60px;
+    border-radius: 30%;
+    border-color: black;
+    border: solid;
+    border-width: 1px;
+}
+
+.logoPane{
+    display: flex;
+    flex-direction: row;
+}
+
+.healthHub{
+    align-content: center;
+    margin-left: 10px;
+    font-size: 30px;
+
+}
+
+.header{
+    display: flex; 
+    margin-left: 20px;
+    margin-top: 10px;  
+    
+
+}
+
+
+
+
+#searchbar{
+font-size: small;
+padding: 2px;
+border-style: none;
+
+}
+
+#searchGlass {
+display: flex;
+margin-top: 5px;
+justify-self: center;
+margin-right: 5px;
+margin-left: 5px;
+margin-bottom: 5px;
+border: 10px;
+border-color: black;
+}
+
+.searchFull{
+display: flex;
+border-style: solid;
+border-width: 1px;
+border-color: black;
+
+}
+
+
+.navButtons {
+display: flex;
+justify-content: space-around;
+column-gap: 25px;
+margin-left: 100px;
+}
+
+.navBtn{
+background-color: white;
+border-style: none;
+color: rgb(94, 93, 93);
+font-size: larger;
+
+}
+.navBtn:hover{
+background-color: white;
+color: rgb(44, 175, 164);
+}
+
+.navBar {
+    display: flex;
+    align-items: center; 
+    margin-left: 700px;
+    
+}
+
+.navSearch {
+    display: flex;
+    gap: 30px;
+    height: 30px;
+    margin-left: 50px;
+    
+    
+    }
+    
