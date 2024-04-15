@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
 import React from 'react'
 import './Layout.css';
+
 const Layout = () => {
 
-  return <div>
+  return <div class="page">
             <div class="header">
               <div class="logoPane">
                   <img class="logoImage" src="./Android.png" alt="Logo"/>
@@ -14,12 +15,12 @@ const Layout = () => {
                   
                   
                   <div class="navButtons">
-                      <button onclick="location.href='home.html'" id="homeBtn" class="navBtn">Home</button>
-                      <button onclick="location.href='courses.php'" class="navBtn">Courses</button>
-                      <button class="navBtn">Timetables</button>
-                      <button onclick="location.href='payments.php'" class="navBtn">Payment</button>
-                      <button onclick="location.href='about.html'" class="navBtn">About Us</button>
-                      
+                      <button id="homeBtn" class="navBtn">Home</button>
+                      <button class="navBtn">Customer Support</button>
+                      <button class="navBtn">Find a Doctor</button>
+                      <button class="navBtn">Pharmacy</button>
+                      <button class="navBtn">About</button>
+                      <button class="navBtn">Resources</button>
                       
                   </div>
                   
@@ -37,8 +38,14 @@ const Layout = () => {
               </div>
 
             </div>
-            <Outlet/>
-            <div></div>
+            <div class='background'>
+              <Outlet/>
+              <div class="footer">
+                <div class="footerItem"> Terms of Service </div>
+                <div class="footerItem"> Privacy Policy </div>
+                <div class="footerItem"> Contact Us </div>
+              </div>
+            </div>
           </div>
 }
 

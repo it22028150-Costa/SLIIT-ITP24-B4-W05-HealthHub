@@ -21,9 +21,10 @@
 
 .header{
     display: flex; 
+    width: 97vw;
+    margin-top: 10px;
     margin-left: 20px;
-    margin-top: 10px;  
-    
+    margin-bottom: 20px;
 
 }
 
@@ -34,6 +35,7 @@
 font-size: small;
 padding: 2px;
 border-style: none;
+color: #000000;
 
 }
 
@@ -67,7 +69,7 @@ margin-left: 100px;
 .navBtn{
 background-color: white;
 border-style: none;
-color: rgb(94, 93, 93);
+color: rgb(0, 0, 0);
 font-size: larger;
 
 }
@@ -79,7 +81,7 @@ color: rgb(44, 175, 164);
 .navBar {
     display: flex;
     align-items: center; 
-    margin-left: 700px;
+    margin-left: 150px;
     
 }
 
@@ -90,5 +92,28 @@ color: rgb(44, 175, 164);
     margin-left: 50px;
     
     
-    }
+}
+
+.background {
+    display: flex;
+    background-image: url(./gg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: space-between;
     
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 120px;
+    margin-top: 50px;
+    border-top: 1px solid #cfcfcf; 
+}
+
+
