@@ -12,19 +12,22 @@ const PORT = process.env.PORT || 3500
 const mongoose = require('mongoose')
 
 
-
-console.log(process.env.NODE_ENV)
-
+//Establish connection to the MongoDB
 connectDB()
 
 
-//Uncomment below if you require logs for the app, do configure which logs will be recorder and not 
+//Uncomment below if you require logs for the app, do configure which logs will be recorded and not 
 app.use(logger)
 
+
+//Using the CORS functionality for security purposes to block out any requests from unknown sources
 app.use(cors(corsOptions))
+
 
 //Allows the app to process JSON Data
 app.use(express.json())
+
+
 
 app.use(cookieParser())
 
@@ -35,6 +38,8 @@ app.use('/',express.static(path.join(__dirname,'public')))
 
  //Defines the Root page of the server
 app.use('/',require('./routes/root'))
+
+app.use('/users',require('./routes/userRoutes'))
 
 
  //Defines Error 404 page
@@ -50,13 +55,18 @@ app.all('*',(req,res)=>{
     
 })
 
+
+//Overrides the default Error handler in order to log Errors
 app.use(errorHandler)
 
 
+
+//Open PORT for requests once the DB connection is established or log error if the connection is failed
 mongoose.connection.once('open',() => {
     console.log('Connected to MongoDB')
     app.listen(PORT, () => console.log(`Server Running on ${PORT} `))
 })
+
 
 mongoose.connection.on('error', err => {
     console.log(err)
