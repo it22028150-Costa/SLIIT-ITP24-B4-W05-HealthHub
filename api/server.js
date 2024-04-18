@@ -32,14 +32,16 @@ app.use(express.json())
 app.use(cookieParser())
 
 
- //Tells the server to get Static files from the public folder CSS files and images 
+ //Tells the server to get Static files from the public folder 
 app.use('/',express.static(path.join(__dirname,'public')))
 
 
  //Defines the Root page of the server
 app.use('/',require('./routes/root'))
 
-app.use('/doctors',require('./routes/doctorRoutes'))
+app.use('/users',require('./routes/userRoutes'))
+
+app.use('/payments',require('./routes/paymentRoutes'))
 
 
  //Defines Error 404 page

@@ -1,27 +1,34 @@
 const mongoose = require('mongoose')
 
 const cardDetailsSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
+    cardid: {
+        type: mongoose.Schema.Types.ObjectId
+        
     },
-    cardNo: {
+
+    useremail: {
+        type: String,
+        required:true
+
+    },
+
+    cardno: {
         type: Number,
         required: true
     },
-    merchant: [{
-        type: String,
-        default: "Visa"
 
-    }],
-    expDate: {
-        type: Date,
+    merchant: {
+        type: String,
+        required: true
+
+    },
+    expdate: {
+        type: String,
         required: true
     },
 
     cvv: {
-        type: Number,
+        type: String,
         required: true
     }
     
