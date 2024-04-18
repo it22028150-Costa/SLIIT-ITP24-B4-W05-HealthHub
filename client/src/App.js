@@ -4,8 +4,8 @@ import Public from './components/Public';
 import Login from './features/auth/Login';
 import DashLayout from './components/Dashboard/DashLayout'
 import Welcome from './features/auth/Welcome'
-import notesList from './features/notes/notesList'
-import usersList from './features/users/usersList'
+import PaymentLayout from './components/Payment/PaymentLayout';
+
 
 function App() {
   return (
@@ -16,6 +16,11 @@ function App() {
 
         <Route path='dash' element={<DashLayout/>}> 
             <Route index element={<Welcome/>}/>
+            
+        </Route>
+
+        <Route path='payment' element={<PaymentLayout/>}> 
+            
             
         </Route>
 

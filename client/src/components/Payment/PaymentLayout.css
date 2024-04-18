@@ -1,0 +1,12 @@
+.payment{
+    display: flex;
+}
+.contentout{
+    background-color: rgb(180, 180, 180);
+    background-image: none;
+    width: 90%;
+}
+
+.sidebar{
+    width: 10%;
+}

@@ -10,6 +10,7 @@
 .logoPane{
     display: flex;
     flex-direction: row;
+    width: 15%;
 }
 
 .healthHub{
@@ -21,10 +22,10 @@
 
 .header{
     display: flex; 
-    width: 97vw;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-top: 0.5%;
+    margin-left: 1%;
+    margin-bottom: 0.8%;
 
 }
 
@@ -63,7 +64,7 @@ border-color: black;
 display: flex;
 justify-content: space-around;
 column-gap: 25px;
-margin-left: 100px;
+
 }
 
 .navBtn{
@@ -80,16 +81,17 @@ color: rgb(44, 175, 164);
 
 .navBar {
     display: flex;
+    justify-content: end;
     align-items: center; 
-    margin-left: 150px;
+    width: 85%
     
 }
 
 .navSearch {
     display: flex;
-    gap: 30px;
     height: 30px;
     margin-left: 50px;
+    margin-right: 30px;
     
     
 }

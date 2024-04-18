@@ -1,5 +1,4 @@
 const User = require('../models/User')
-const Card = require('../models/CardDetails')
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt') 
 
