@@ -15,7 +15,27 @@ const PaymentLayout = () => {
             <div class='content'>
 
                 <div class='navbar'>
-                    <div>Hello</div> 
+                    <div class='navicon'>
+                        <img class='iconimg' src='' alt=''/>
+                        <div class='icontext'>Credit/Debit Card</div>
+                    </div> 
+                    <div class='navicon'>
+                        <img class='iconimg' src='' alt=''/>
+                        <div class='icontext'>Cheques</div>
+                    </div> 
+                    <div class='navicon'>
+                        <img class='iconimg' src='' alt=''/>
+                        <div class='icontext'>Star Points</div>
+                    </div> 
+                    <div class='navicon'>
+                        <img class='iconimg' src='' alt=''/>
+                        <div class='icontext'>Koko</div>
+                    </div> 
+                    <div class='navicon'>
+                        <img class='iconimg' src='' alt=''/>
+                        <div class='icontext'>Mintpay</div>
+                    </div> 
+                    
                 </div>
 
                 <div class='layout'>
