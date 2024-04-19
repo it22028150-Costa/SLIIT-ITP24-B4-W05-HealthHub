@@ -1,8 +1,8 @@
 import React, { useEffect,useState } from 'react'
-import { Outlet } from 'react-router-dom'
 import './FinanceLayout.css'
 import axios from "axios";
 import './MakePayment.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -56,16 +56,24 @@ const MakePayment = () => {
 
             <div class='layout'>
                     <div class="cards">
-                        {cards.map(cards =>(
-                            <div class="card"> 
-                                <img class="merchimg" src='/payimg/Visa.png' alt=''/>
+                    {cards.map(cards =>(
+                            <div key={cards._id} class="card"> 
+                                {cards.merchant === "Visa" ? (
+                                    <img class="merchimg" src='/payimg/Visa.png' alt=''/>
+                                ) : cards.merchant === "Mastercard" ? (
+                                    <img class="merchimg" src='/payimg/MastercardLogo.png' alt=''/>
+                                ) : (
+                                    <img class="merchimg" src='/payimg/Visa.png' alt=''/>
+                                )}
+                                
                                 <div class="cardinfo">
                                     <div class ="carddetail" id='cardno'>{cards.cardno}</div>
-                                    <div class ="carddetail" id= 'cardname'>name</div>
-                                </div>    
+                                    <div class ="carddetail" id= 'cardname'>{cards.nameoncard}</div>
+                                </div>     
+           
                             </div>
                         ))}
-
+                        <Link to="/finance/card">Configure Cards</Link>
                     </div>
 
                     <div class="paysummary">

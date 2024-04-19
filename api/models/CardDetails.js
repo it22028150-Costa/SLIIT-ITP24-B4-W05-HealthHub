@@ -6,30 +6,35 @@ const cardDetailsSchema = new mongoose.Schema({
         
     },
 
+    nameoncard: {
+        type: String,
+        
+    },
+
     useremail: {
         type: String,
-        required:true
+        
 
     },
 
     cardno: {
         type: Number,
-        required: true
+        
     },
 
     merchant: {
         type: String,
-        required: true
+        
 
     },
     expdate: {
-        type: String,
-        required: true
+        type: Date,
+        
     },
 
     cvv: {
         type: String,
-        required: true
+        
     }
     
 })

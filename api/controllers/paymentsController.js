@@ -22,12 +22,13 @@ const getSavedDetails = asyncHandler(async(req,res) => {
 //@access Private
 
 const savePaymentDetails = asyncHandler(async(req,res) => {
-    const {useremail,cardno,merchant,expdate,cvv} = req.body
+    console.log(req.body);
+    const {nameoncard,useremail,cardno,merchant,expdate,cvv} = req.body
 
     //Confirm data
-    if(!useremail || !cardno || !merchant || !expdate || !cvv){
-        return res.status(400).json({message: 'All fields are required'})
-    }
+    // if(!nameoncard || !useremail || !cardno || !merchant || !expdate || !cvv){
+    //     return res.status(400).json({message: 'All fields are required'})
+    // }
 
     // //Check for duplicate
     // const duplicatecardno = await Card.findOne({cardno}).lean().exec()
@@ -43,11 +44,11 @@ const savePaymentDetails = asyncHandler(async(req,res) => {
 
 
 
-    const userObject =  {useremail, cardno, merchant,expdate,cvv}
+    const cardObject =  {nameoncard, useremail, cardno, merchant,expdate,cvv}
 
     // Create and store new user
 
-    const card = await Card.create(userObject)
+    const card = await Card.create(cardObject)
 
     if (card) {
         res.status(201).json({message: `New card for ${useremail} created`})
@@ -103,22 +104,22 @@ const updateUser = asyncHandler(async(req,res) => {
 //@route DELETE /users
 //@access Private
 
-const deleteUser = asyncHandler(async(req,res) => {
-    const {id} = req.body
+const deleteCardDetails = asyncHandler(async(req,res) => {
+    const { id } = req.params;
 
     if(!id){
-        return res.status(400).json({message: 'User ID Required'})
+        return res.status(400).json({message: 'Card ID Required'})
     }
 
-    const user = await User.findByID(id).exec()
+    const card = await Card.findById(id).exec()
 
-    if(!user){
-        return res.status(400).json({message: 'User not found'})
+    if(!card){
+        return res.status(400).json({message: 'Card not found'})
     }
     
-    const result = await user.deleteOne()
+    const result = await card.deleteOne()
 
-    const reply = `Username ${result.username} with ID ${result._id} deleted` 
+    const reply = ` ${card.cardno} with Name ${card.nameoncard} has been deleted` 
 
     res.json(reply)
 
@@ -128,5 +129,5 @@ const deleteUser = asyncHandler(async(req,res) => {
 
 
 module.exports = {
-    getSavedDetails, savePaymentDetails
+    getSavedDetails, savePaymentDetails,deleteCardDetails
 }

@@ -7,6 +7,8 @@ import Welcome from './features/auth/Welcome'
 import FinanceLayout from './components/Finance/FinanceLayout';
 import PaymentHistory from './components/Finance/PaymentHistory';
 import MakePayment from './components/Finance/MakePayment';
+import ConfigureCards from './components/Finance/ConfigureCards'
+
 
 
 function App() {
@@ -25,8 +27,11 @@ function App() {
         <Route path='finance' element={<FinanceLayout/>}> 
             <Route index element={<PaymentHistory/>}/>
             <Route path='pay' element={<MakePayment/>}/>
+            <Route path='card' element={<ConfigureCards/>}/>
             
         </Route>
+
+        
 
       </Route>
     </Routes>
