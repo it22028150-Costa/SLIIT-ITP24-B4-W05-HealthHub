@@ -4,7 +4,9 @@ import Public from './components/Public';
 import Login from './features/auth/Login';
 import DashLayout from './components/Dashboard/DashLayout'
 import Welcome from './features/auth/Welcome'
-import PaymentLayout from './components/Payment/PaymentLayout';
+import FinanceLayout from './components/Finance/FinanceLayout';
+import PaymentHistory from './components/Finance/PaymentHistory';
+import MakePayment from './components/Finance/MakePayment';
 
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout/>}> 
         <Route index element={<Public/>}/>
+        
         <Route path='login' element={<Login/>}/>
 
         <Route path='dash' element={<DashLayout/>}> 
@@ -19,8 +22,9 @@ function App() {
             
         </Route>
 
-        <Route path='payment' element={<PaymentLayout/>}> 
-            
+        <Route path='finance' element={<FinanceLayout/>}> 
+            <Route index element={<PaymentHistory/>}/>
+            <Route path='pay' element={<MakePayment/>}/>
             
         </Route>
 

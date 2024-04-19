@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
 //@access Private
 
 const getSavedDetails = asyncHandler(async(req,res) => {
-    const {useremail} = req.body
+    const {useremail} = req.query
     const list = await Card.find({'useremail': useremail}).select().lean() //Lean makes sure that the methods are not returned with the response
     if (!list?.length){
         return res.status(400).json({message: `No card details for ${useremail} found`})

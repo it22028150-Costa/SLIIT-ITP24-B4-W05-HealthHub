@@ -7,7 +7,7 @@ const Layout = () => {
   return <div class="page">
             <div class="header">
               <div class="logoPane">
-                  <img class="logoImage" src="./Android.png" alt="Logo"/>
+                  <img class="logoImage" src="/Android.png" alt="Logo"/>
                   <div class="healthHub">Health Hub</div>
               </div>
 
@@ -30,7 +30,7 @@ const Layout = () => {
 
                       
                       <div class="searchFull">
-                      <img id="searchGlass"src="./search.png" alt="search" width="15px" height="15px"/>
+                      <img id="searchGlass"src="/search.png" alt="search" width="15px" height="15px"/>
                       <input id="searchbar" type="text" placeholder="Search.."/>
                       </div>
 

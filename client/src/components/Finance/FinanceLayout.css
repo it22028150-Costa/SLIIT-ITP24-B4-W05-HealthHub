@@ -11,7 +11,7 @@
 }
 
 .sidebar{
-    width: 10%;
+    width: 15%;
     height: 100%;
     background-color:rgb(235, 230, 230);
 
@@ -19,8 +19,9 @@
 
 .content{
     background-color: rgba(78, 77, 77, 0.233);
-    width: 90%;
+    width: 80%;
     height: 90%;
+
 }
 
 .navbar{
@@ -35,4 +36,9 @@
     width: 20%;
     text-align: center;
 
+}
+
+.iconimg{
+    height: 60%;
+    width: 30%;
 }
