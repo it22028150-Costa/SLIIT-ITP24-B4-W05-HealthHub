@@ -8,6 +8,10 @@ import FinanceLayout from './components/Finance/FinanceLayout';
 import PaymentHistory from './components/Finance/PaymentHistory';
 import MakePayment from './components/Finance/MakePayment';
 import ConfigureCards from './components/Finance/ConfigureCards'
+import Health from './components/Doctor/addhealth'
+import HealthDetails from './components/Doctor/healthdetails'
+import UpdateHealth from './components/Doctor/Updatehealth'
+import Header5 from './components/Doctor/header'
 
 
 
@@ -31,6 +35,11 @@ function App() {
             
         </Route>
 
+        <Route path='/doctor' element={<Header5/>}>
+          <Route index element={<Health/>}/>
+          <Route path='healthdetails' element={<HealthDetails/>}/>
+          <Route path='updatehealth/:id' element={<UpdateHealth/>}/>
+        </Route>
         
 
       </Route>

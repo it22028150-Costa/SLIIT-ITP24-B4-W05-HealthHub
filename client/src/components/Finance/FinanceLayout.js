@@ -13,10 +13,7 @@ const FinanceLayout = () => {
 
         <div class='contentout'>
             
-
             <Outlet/>    
-
-            
 
 
         </div>

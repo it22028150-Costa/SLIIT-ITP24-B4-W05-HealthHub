@@ -25,3 +25,12 @@
 .cardradio{
     display: flex;
 }
+
+.crdbtn{
+    
+}
+
+.addcrdlink{
+    color: red;
+    text-decoration: none;
+}

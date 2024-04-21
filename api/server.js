@@ -43,6 +43,8 @@ app.use('/users',require('./routes/userRoutes'))
 
 app.use('/payments',require('./routes/paymentRoutes'))
 
+app.use('/doctor',require('./routes/doctorRoutes') )
+
 
  //Defines Error 404 page
 app.all('*',(req,res)=>{ 

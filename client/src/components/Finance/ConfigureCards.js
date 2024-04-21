@@ -81,14 +81,14 @@ const ConfigureCards = () => {
                                 ) : (
                                     <img class="merchimg" src='/payimg/default.png' alt=''/>
                                 )}
-                                {/* <img class="merchimg" src='/payimg/Visa.png' alt=''/> */}
+                                
                                 <div class="cardinfo">
                                     <div class ="carddetail" id='cardno'>{cards.cardno}</div>
                                     <div class ="carddetail" id= 'cardname'>{cards.nameoncard}</div>
                                 </div> 
 
                                 <div class='cardicons'>
-                                    <img class="cardicon" src='/payimg/editing.png'/>
+                                    
                                     <img class="cardicon" src='/payimg/delete.png' onClick={() => deleteCard(cards._id)} />
                                    
                                 </div>    

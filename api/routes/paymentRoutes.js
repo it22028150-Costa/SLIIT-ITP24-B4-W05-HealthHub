@@ -1,13 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const paymentsController = require('../controllers/paymentsController')
-const {deleteCardDetails} = require('../controllers/paymentsController')
-
-router.route('/')
-    .get(paymentsController.getSavedDetails)
-    .post(paymentsController.savePaymentDetails)
-    
-
+const {deleteCardDetails,getSavedDetails,savePaymentDetails} = require('../controllers/paymentsController')
+  
+router.get('/',getSavedDetails)
+router.post('/',savePaymentDetails)
 router.delete('/:id',deleteCardDetails)    
     
 

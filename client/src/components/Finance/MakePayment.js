@@ -73,7 +73,10 @@ const MakePayment = () => {
            
                             </div>
                         ))}
-                        <Link to="/finance/card">Configure Cards</Link>
+                        
+                           
+                        <Link class='addcrdlink' to="/finance/card">Add/Remove Cards </Link>
+                        
                     </div>
 
                     <div class="paysummary">

@@ -1,129 +1,67 @@
-const User = require('../models/User')
-const Card = require('../models/CardDetails')
+const healthmodel = require("../models/healthmodels");
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt') 
 
-//@desc Get all users
-//@route Get /users
-//@access Private
+const getDoctorDetails = asyncHandler(async(req,res)=>{
+    const data= await healthmodel.find({})
+  
+    res.json({success:true,data:data})
+})
 
-const getAllUsers = asyncHandler(async(req,res) => {
-    const users = await User.find().select('-password').lean() //Lean makes sure that the methods are not returned with the response
-    if (!users?.length){
-        return res.status(400).json({message: 'No users found'})
-    }
-    res.json(users)
+const createDoctor = asyncHandler(async(req,res)=>{
+    const data=new healthmodel(req.body)
+    await data.save()
+    res.send({success:true,message:"data created successfuly"})
 })
 
 
+const updateDoctor = asyncHandler(async(req,res)=>{
+    const {id,...rest}=req.body
+    const data=await healthmodel.updateOne({_id:id},rest)
+    res.send({success:true,message:"updated successfuly",data:data})
+})
 
-//@desc Create New User
-//@route POST /users
-//@access Private
+const deleteDoctor = asyncHandler(async(req,res)=>{
+    const id=req.params.id
+    const data=await healthmodel.deleteOne({_id:id})
+    res.send({success:true,message:"deleted successfully",data:data})
+    })
 
-const createNewUser = asyncHandler(async(req,res) => {
-    const {username, password, roles} = req.body
 
-    //Confirm data
-    if(!username || !password || !Array.isArray(roles) || !roles.length){
-        return res.status(400).json({message: 'All fields are required'})
+const countApp = asyncHandler(async(req,res)=>{
+    try{
+        const users=await healthmodel.find({});
+
+        return res.status(200).json({
+            count:users.length,
+            data:users
+        })
+
+    }catch(err){
+            console.log(err.message);
+            res.json({success:true,message:"Order count successfully",data:data})
     }
 
-    //Check for duplicate
-    const duplicate = await User.findOne({username}).lean().exec()
+})   
 
-    if (duplicate){
-        return res.status(400).json({message: 'Duplicate username'})
-    }
+const orderApp = asyncHandler(async (req, res) => {
+    const id = req.params.id;
 
-    // Hash Password
+    try {
+        const order = await healthmodel.findById(id);
 
-    const hashedPwd = await bcrypt.hash(password,10) // salt rounds
+        if (!order) {
+            return res.status(404).send({ success: false, message: "User not found" });
+        }
 
-    const userObject =  {username, "password": hashedPwd, roles}
-
-    // Create and store new user
-
-    const user = await User.create(userObject)
-
-    if (user) {
-        res.status(201).json({message: `New user ${username} created`})
-    } else {
-        res.status(400).json({message: 'Invalid user data recieved'})
+        res.send({ success: true, message: "User fetched successfully", data: order });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, message: "Internal Server Error" });
     }
 })
 
-
-
-//@desc Update a User
-//@route PATCH /users
-//@access Private
-
-const updateUser = asyncHandler(async(req,res) => {
-    const { id, username, roles, active, password } = req.body
-
-    //Confirm data 
-    if (!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean'){
-        return res.status(400).json({message: 'All fields are required'})
-    }
-
-    const user = await User.findByID(id).exec()
-
-    if(!user){
-        return res.status(400).json({message:'User not found'})
-    }
-
-    const duplicate = await User.findOne({username}).lean().exec()
-    //Allow updates to the original user
-    if (duplicate && duplicate?._id.toString() !== id){
-        return res.status(409).json({message: 'Duplicate Username'})
-        
-    }
-
-    user.username = username
-    user.roles = roles
-    user.active = active
-
-    if(password){
-        //Hash Password
-        user.password = await bcrypt.hash(password,10) // salt rounds
-    }
-
-    const updatedUser = await user.save()
-
-    res.json({message: `${updatedUser.username} updated`})
-
-})
-
-
-//@desc Delete a User
-//@route DELETE /users
-//@access Private
-
-const deleteUser = asyncHandler(async(req,res) => {
-    const {id} = req.body
-
-    if(!id){
-        return res.status(400).json({message: 'User ID Required'})
-    }
-
-    const user = await User.findByID(id).exec()
-
-    if(!user){
-        return res.status(400).json({message: 'User not found'})
-    }
     
-    const result = await user.deleteOne()
-
-    const reply = `Username ${result.username} with ID ${result._id} deleted` 
-
-    res.json(reply)
-
-
-})
-
-
-
 module.exports = {
-    getAllUsers, createNewUser, updateUser, deleteUser
+    getDoctorDetails,createDoctor,updateDoctor,deleteDoctor,countApp,orderApp
 }
