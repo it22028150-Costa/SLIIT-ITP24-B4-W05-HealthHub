@@ -15,6 +15,7 @@ import Header5 from './components/Doctor/header'
 
 
 
+
 function App() {
   return (
     <Routes>
@@ -35,11 +36,13 @@ function App() {
             
         </Route>
 
-        <Route path='/doctor' element={<Header5/>}>
+        <Route path='doctor' element={<Header5/>}>
           <Route index element={<Health/>}/>
           <Route path='healthdetails' element={<HealthDetails/>}/>
           <Route path='updatehealth/:id' element={<UpdateHealth/>}/>
         </Route>
+
+   
         
 
       </Route>

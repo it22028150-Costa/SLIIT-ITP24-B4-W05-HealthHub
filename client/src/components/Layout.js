@@ -19,7 +19,7 @@ const Layout = () => {
                       <button class="navBtn">Customer Support</button>
                       <button class="navBtn">Find a Doctor</button>
                       <button class="navBtn">Pharmacy</button>
-                      <button class="navBtn">About</button>
+                      <button class="navBtn">Fitness</button>
                       <button class="navBtn">Resources</button>
                       
                   </div>
